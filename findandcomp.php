@@ -7,7 +7,7 @@
 <body>
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <br>
-        website 1: <input type="url" name="website1"><br>  <!--qui non mi era chiaro se dovessi per forza usare un type="text"-->
+        website 1: <input type="url" name="website1"><br>  <!--I preferred to use type = "url". below I defined the control in case it was mandatory to use type = "text"-->
     <br>
         website 2: <input type="url" name="website2"><br>
     <br>
@@ -32,6 +32,28 @@
         //form has been submitted
         findAndCompare();
 
+
+        //this section is a necessary check if I do not want to impose type = "url"
+
+       /*
+        $web1 = $_POST['website1'];
+        $web2 = $_POST['website2'];
+
+        if (strpos($web1, 'http') === false) {		
+    		$website1 = "http://".$web1;
+		}else{
+			$website1 = $web1;
+		}
+
+		if (strpos($web2, 'http') === false) {		
+    		$website2 = "http://".$web2;
+		}else{
+			$website2 = $web2;
+		}
+
+		findAndCompare($website1,$website2);
+		*/
+
     }
 
 
@@ -45,14 +67,10 @@
         $array1 = crawler($url1);
         $arrlength1 = count($array1);
 
-        echo $arrlength1;
-
 
         $url2 = $_POST['website2'];
         $array2 = crawler($url2);
         $arrlength2 = count($array2);
-
-        echo $arrlength2;
 
   }
 
