@@ -1,34 +1,46 @@
 <html>
+   <head>
+      <title>Find & Compare</title>
+   </head>
+   <body>
+      <br>
+      <h2>Find & Compare - Brunella Marzolini</h2>
+      <h4>Fill the two input fields with the homepage url address (e.g. http://www.homepage.com) of two websites</h4>
+      <br>
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+         <br>
+         website 1: <input id="uno" type="text" name="website1" value="" oninput="countOnType()"><br>  <!--qui non mi era chiaro se dovessi per forza usare un type="text"-->
+         <br>
+         website 2: <input id="due" type="text" name="website2" value ="" oninput="countOnType()"><br>
+         <br>
+         <p>Counter: <a id="counter">0</a></p>
+         <p>Sum Alphabet Position: <a id="alphabet">0</a></p>
+         <br>
+         <button type="submit" name="submit" onclick="alphabetPosition()">Find&Compare</button>
+         <br>
+      </form>
+      <script type="text/javascript" src="js/counter.js"></script>
+   </body>
+</html>
 
-<head>
-   <title>Find & Compare</title>
-</head>
-
-<body>
-	<br>
-	<h2>Find & Compare - Brunella Marzolini</h2>
-	<h4>Fill the two input fields with the homepage url address (e.g. http://www.homepage.com) of two websites</h4>
-	<br>
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    <br>website 1: <input type="url" name="website1"><br>  <!--I preferred to use type = "url". below I defined the control in case it was mandatory to use type = "text"-->
-    <br>website 2: <input type="url" name="website2"><br>
-    <br>
-    <br>
-    <button type="submit" name="submit">Find&Compare</button>
-    <br>
-    </form>
-</body>
-</html> 
 
 <?php
+
   if(isset($_POST['submit']))
   {
     if($_POST['website1']=="" || $_POST['website2']==""){
+
         echo "Fill both Fields!";
+
     }else{
+
         //form has been submitted
         findAndCompare();
-        //this section is a necessary check if I do not want to impose type = "url"
+
+
+
+       //this section is a necessary check if I do not want to impose type = "url"
+       
        /*
         $web1 = $_POST['website1'];
         $web2 = $_POST['website2'];
@@ -44,8 +56,11 @@
 		}
 		findAndCompare($website1,$website2);
 		*/
+
     }
   }
+
+
     function findAndCompare(){
 
 
